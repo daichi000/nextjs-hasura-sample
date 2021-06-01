@@ -4,7 +4,7 @@ export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions =  {}
+const defaultOptions = {}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -13,7 +13,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   timestamptz: any;
-  uuid: any;
+  uuid: string;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
@@ -1258,10 +1258,12 @@ export type GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetUsersQuery = (
   { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'name' | 'created_at'>
-  )> }
+  & {
+    users: Array<(
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'name' | 'created_at'>
+    )>
+  }
 );
 
 export type GetUserIdsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -1269,10 +1271,12 @@ export type GetUserIdsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetUserIdsQuery = (
   { __typename?: 'query_root' }
-  & { users: Array<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id'>
-  )> }
+  & {
+    users: Array<(
+      { __typename?: 'users' }
+      & Pick<Users, 'id'>
+    )>
+  }
 );
 
 export type GetUserByIdQueryVariables = Exact<{
@@ -1282,10 +1286,12 @@ export type GetUserByIdQueryVariables = Exact<{
 
 export type GetUserByIdQuery = (
   { __typename?: 'query_root' }
-  & { users_by_pk?: Maybe<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'name' | 'created_at'>
-  )> }
+  & {
+    users_by_pk?: Maybe<(
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'name' | 'created_at'>
+    )>
+  }
 );
 
 export type CreateUserMutationVariables = Exact<{
@@ -1295,10 +1301,12 @@ export type CreateUserMutationVariables = Exact<{
 
 export type CreateUserMutation = (
   { __typename?: 'mutation_root' }
-  & { insert_users_one?: Maybe<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'name' | 'created_at'>
-  )> }
+  & {
+    insert_users_one?: Maybe<(
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'name' | 'created_at'>
+    )>
+  }
 );
 
 export type DeleteUserMutationVariables = Exact<{
@@ -1308,10 +1316,12 @@ export type DeleteUserMutationVariables = Exact<{
 
 export type DeleteUserMutation = (
   { __typename?: 'mutation_root' }
-  & { delete_users_by_pk?: Maybe<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'name' | 'created_at'>
-  )> }
+  & {
+    delete_users_by_pk?: Maybe<(
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'name' | 'created_at'>
+    )>
+  }
 );
 
 export type UpdateUserMutationVariables = Exact<{
@@ -1322,10 +1332,12 @@ export type UpdateUserMutationVariables = Exact<{
 
 export type UpdateUserMutation = (
   { __typename?: 'mutation_root' }
-  & { update_users_by_pk?: Maybe<(
-    { __typename?: 'users' }
-    & Pick<Users, 'id' | 'name' | 'created_at'>
-  )> }
+  & {
+    update_users_by_pk?: Maybe<(
+      { __typename?: 'users' }
+      & Pick<Users, 'id' | 'name' | 'created_at'>
+    )>
+  }
 );
 
 
@@ -1355,13 +1367,13 @@ export const GetUsersDocument = gql`
  * });
  */
 export function useGetUsersQuery(baseOptions?: Apollo.QueryHookOptions<GetUsersQuery, GetUsersQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUsersQuery, GetUsersQueryVariables>(GetUsersDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<GetUsersQuery, GetUsersQueryVariables>(GetUsersDocument, options);
+}
 export function useGetUsersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUsersQuery, GetUsersQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUsersQuery, GetUsersQueryVariables>(GetUsersDocument, options);
-        }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<GetUsersQuery, GetUsersQueryVariables>(GetUsersDocument, options);
+}
 export type GetUsersQueryHookResult = ReturnType<typeof useGetUsersQuery>;
 export type GetUsersLazyQueryHookResult = ReturnType<typeof useGetUsersLazyQuery>;
 export type GetUsersQueryResult = Apollo.QueryResult<GetUsersQuery, GetUsersQueryVariables>;
@@ -1389,13 +1401,13 @@ export const GetUserIdsDocument = gql`
  * });
  */
 export function useGetUserIdsQuery(baseOptions?: Apollo.QueryHookOptions<GetUserIdsQuery, GetUserIdsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(GetUserIdsDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(GetUserIdsDocument, options);
+}
 export function useGetUserIdsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserIdsQuery, GetUserIdsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(GetUserIdsDocument, options);
-        }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<GetUserIdsQuery, GetUserIdsQueryVariables>(GetUserIdsDocument, options);
+}
 export type GetUserIdsQueryHookResult = ReturnType<typeof useGetUserIdsQuery>;
 export type GetUserIdsLazyQueryHookResult = ReturnType<typeof useGetUserIdsLazyQuery>;
 export type GetUserIdsQueryResult = Apollo.QueryResult<GetUserIdsQuery, GetUserIdsQueryVariables>;
@@ -1426,13 +1438,13 @@ export const GetUserByIdDocument = gql`
  * });
  */
 export function useGetUserByIdQuery(baseOptions: Apollo.QueryHookOptions<GetUserByIdQuery, GetUserByIdQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GetUserByIdDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GetUserByIdDocument, options);
+}
 export function useGetUserByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserByIdQuery, GetUserByIdQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GetUserByIdDocument, options);
-        }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GetUserByIdDocument, options);
+}
 export type GetUserByIdQueryHookResult = ReturnType<typeof useGetUserByIdQuery>;
 export type GetUserByIdLazyQueryHookResult = ReturnType<typeof useGetUserByIdLazyQuery>;
 export type GetUserByIdQueryResult = Apollo.QueryResult<GetUserByIdQuery, GetUserByIdQueryVariables>;
@@ -1465,9 +1477,9 @@ export type CreateUserMutationFn = Apollo.MutationFunction<CreateUserMutation, C
  * });
  */
 export function useCreateUserMutation(baseOptions?: Apollo.MutationHookOptions<CreateUserMutation, CreateUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
+}
 export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
 export type CreateUserMutationResult = Apollo.MutationResult<CreateUserMutation>;
 export type CreateUserMutationOptions = Apollo.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
@@ -1500,9 +1512,9 @@ export type DeleteUserMutationFn = Apollo.MutationFunction<DeleteUserMutation, D
  * });
  */
 export function useDeleteUserMutation(baseOptions?: Apollo.MutationHookOptions<DeleteUserMutation, DeleteUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<DeleteUserMutation, DeleteUserMutationVariables>(DeleteUserDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useMutation<DeleteUserMutation, DeleteUserMutationVariables>(DeleteUserDocument, options);
+}
 export type DeleteUserMutationHookResult = ReturnType<typeof useDeleteUserMutation>;
 export type DeleteUserMutationResult = Apollo.MutationResult<DeleteUserMutation>;
 export type DeleteUserMutationOptions = Apollo.BaseMutationOptions<DeleteUserMutation, DeleteUserMutationVariables>;
@@ -1536,9 +1548,9 @@ export type UpdateUserMutationFn = Apollo.MutationFunction<UpdateUserMutation, U
  * });
  */
 export function useUpdateUserMutation(baseOptions?: Apollo.MutationHookOptions<UpdateUserMutation, UpdateUserMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(UpdateUserDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(UpdateUserDocument, options);
+}
 export type UpdateUserMutationHookResult = ReturnType<typeof useUpdateUserMutation>;
 export type UpdateUserMutationResult = Apollo.MutationResult<UpdateUserMutation>;
 export type UpdateUserMutationOptions = Apollo.BaseMutationOptions<UpdateUserMutation, UpdateUserMutationVariables>;
